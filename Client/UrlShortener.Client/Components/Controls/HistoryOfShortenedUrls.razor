@@ -1,0 +1,20 @@
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using UrlShortener.Client.Models.DTOs
+
+@if (ShortenedUrls is not null && ShortenedUrls.Count > 0)
+{
+    <QuickGrid Pagination="@_pagination" Items="ShortenedUrls.AsQueryable()">
+        <PropertyColumn Property="x => ShortenedUrls.IndexOf(x) + 1" Title="№"></PropertyColumn>
+        <TemplateColumn Title="Short Url">
+            <a href="@context.ShortUrl" target="_blank">Access</a>
+        </TemplateColumn>
+        <PropertyColumn Property="x => x.LongUrl"></PropertyColumn>
+        <PropertyColumn Property="x => x.CreatedOnUtc" Sortable="true"></PropertyColumn>
+        <Paginator State="_pagination"></Paginator>
+    </QuickGrid>
+}
+
+@code {
+    [Parameter, EditorRequired] public List<ShortenedUrl>? ShortenedUrls { get; set; }
+    private PaginationState _pagination = new PaginationState { ItemsPerPage = 10 };
+}

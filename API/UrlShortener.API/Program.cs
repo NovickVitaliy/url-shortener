@@ -39,7 +39,7 @@ app.MapPost("/api/shorten", async (
 
     await db.SaveChangesAsync();
 
-    return Results.Ok(new {shortUrl = shortenedUrl.ShortUrl});
+    return Results.Ok(new ShortenUrlResponse(shortenedUrl.ShortUrl, shortenedUrl.LongUrl));
 });
 
 app.MapGet("/api/{code}", async (string code, ApplicationDbContext db) =>
@@ -49,6 +49,14 @@ app.MapGet("/api/{code}", async (string code, ApplicationDbContext db) =>
     return shortenedUrl is null
         ? Results.NotFound("No shortened URl for given code")
         : Results.Redirect(shortenedUrl.LongUrl);
+});
+
+app.MapGet("/api/shorten/all", async (ApplicationDbContext db) =>
+{
+    var response = await db.ShortenedUrls.Select(x => new ShortenedUrlDto(x.ShortUrl, x.LongUrl, x.CreatedOnUtc))
+        .ToListAsync();
+
+    return Results.Ok(response);
 });
 
 app.Run();

@@ -17,15 +17,23 @@
     </div>
 }
 <br>
-@*TODO: Create list of recent shortened URLs*@
+
+<HistoryOfShortenedUrls ShortenedUrls="History"></HistoryOfShortenedUrls>
 
 @code
 {
     private string? ShortenedUrl { get; set; }
-
+    private List<ShortenedUrl>? History { get; set; }
     private async Task GetShortenedUrl(string longUrl)
     {
         var response = await UrlShortenerService.GetShortenedUrl(new ShortenUrlRequest(longUrl));
         ShortenedUrl = response.ShortUrl;
+        History?.Add(new ShortenedUrl(response.ShortUrl, response.LongUrl, DateTime.UtcNow));
+        StateHasChanged();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        History = await UrlShortenerService.GetShortenedUrlsHistory();
     }
 }

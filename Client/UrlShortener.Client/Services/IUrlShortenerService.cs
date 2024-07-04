@@ -10,4 +10,7 @@ public interface IUrlShortenerService
     
     [Get("/{code}")]
     Task RedirectViaShortUrl(string code);
+
+    [Get("/shorten/all")]
+    Task<List<ShortenedUrl>> GetShortenedUrlsHistory();
 }

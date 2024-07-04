@@ -30,3 +30,13 @@ C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debu
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Refit.HttpClientFactory.dll
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShortener.Client.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShort.71CF1BC2.Up2Date
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Microsoft.JSInterop.dll
