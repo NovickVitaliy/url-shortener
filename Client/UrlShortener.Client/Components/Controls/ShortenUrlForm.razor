@@ -1,0 +1,25 @@
+@inject IJSRuntime JsRuntime
+
+<div class="col-4">
+    <div class="input-group mb-3">
+        <input @bind-value="Url" type="text" class="form-control" placeholder="Long url">
+        <button class="btn btn-primary" type="button" @onclick="OnSubmit">Shorten</button>
+    </div>
+</div>
+
+@code {
+    private string? Url { get; set; }
+    
+    [Parameter, EditorRequired]
+    public EventCallback<string> GetShortenedUrl { get; set; }
+
+    private async Task OnSubmit()
+    {
+        if (string.IsNullOrEmpty(Url) || !Uri.TryCreate(Url, UriKind.Absolute, out _))
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Invalid URL supplied");
+        }
+
+        await GetShortenedUrl.InvokeAsync(Url);
+    }
+}

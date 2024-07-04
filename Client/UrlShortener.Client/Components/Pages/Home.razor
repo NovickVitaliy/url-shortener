@@ -1,7 +1,27 @@
 ﻿@page "/"
+@using UrlShortener.Client.Components.Controls
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Url Shortener</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="d-flex justify-content-center">
+    <ShortenUrlForm GetShortenedUrl="GetShortenedUrl"></ShortenUrlForm>
+</div>
+<br>
+@if (ShortenedUrl is not null)
+{
+    <div class="d-flex justify-content-center mb-3">
+        <p>Your shortened URL: <a href="@ShortenedUrl">Click Me</a></p>
+    </div>
+}
+<br>
+@*TODO: Create list of recent shortened URLs*@
 
-Welcome to your new app.
+@code
+{
+    private string? ShortenedUrl { get; set; }
+
+    private void GetShortenedUrl(string longUrl)
+    {
+        //TODO: get shortened URL from the api
+    }
+}
