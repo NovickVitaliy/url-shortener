@@ -1,5 +1,8 @@
 ﻿@page "/"
+@inject IUrlShortenerService UrlShortenerService
 @using UrlShortener.Client.Components.Controls
+@using UrlShortener.Client.Models.DTOs
+@using UrlShortener.Client.Services
 
 <PageTitle>Url Shortener</PageTitle>
 
@@ -10,7 +13,7 @@
 @if (ShortenedUrl is not null)
 {
     <div class="d-flex justify-content-center mb-3">
-        <p>Your shortened URL: <a href="@ShortenedUrl">Click Me</a></p>
+        <p>Your shortened URL: <a href="@ShortenedUrl" target="_blank">Click Me</a></p>
     </div>
 }
 <br>
@@ -20,8 +23,9 @@
 {
     private string? ShortenedUrl { get; set; }
 
-    private void GetShortenedUrl(string longUrl)
+    private async Task GetShortenedUrl(string longUrl)
     {
-        //TODO: get shortened URL from the api
+        var response = await UrlShortenerService.GetShortenedUrl(new ShortenUrlRequest(longUrl));
+        ShortenedUrl = response.ShortUrl;
     }
 }

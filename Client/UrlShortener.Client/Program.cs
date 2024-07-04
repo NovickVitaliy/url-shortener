@@ -1,10 +1,19 @@
+using Refit;
 using UrlShortener.Client.Components;
+using UrlShortener.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddRefitClient<IUrlShortenerService>()
+    .ConfigureHttpClient(c =>
+    {
+        c.BaseAddress = new Uri(builder.Configuration["UrlShortenerApiSettings:Url"] ??
+                                throw new ArgumentException("API url"));
+    });
 
 var app = builder.Build();
 

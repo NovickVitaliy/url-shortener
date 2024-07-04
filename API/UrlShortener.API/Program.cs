@@ -39,7 +39,7 @@ app.MapPost("/api/shorten", async (
 
     await db.SaveChangesAsync();
 
-    return Results.Ok(shortenedUrl.ShortUrl);
+    return Results.Ok(new {shortUrl = shortenedUrl.ShortUrl});
 });
 
 app.MapGet("/api/{code}", async (string code, ApplicationDbContext db) =>

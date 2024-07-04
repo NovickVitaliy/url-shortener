@@ -26,3 +26,7 @@ C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debu
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShortener.Client.pdb
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShortener.Client.genruntimeconfig.cache
 C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\ref\UrlShortener.Client.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Refit.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\bin\Debug\net8.0\Refit.HttpClientFactory.dll
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShortener.Client.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\projects\url-shortener\Client\UrlShortener.Client\obj\Debug\net8.0\UrlShort.71CF1BC2.Up2Date
