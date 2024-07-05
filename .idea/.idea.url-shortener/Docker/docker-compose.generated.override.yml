@@ -1,0 +1,41 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  urlshortener.api:
+    build:
+      context: "C:\\Users\\User\\Desktop\\projects\\url-shortener"
+      dockerfile: "API/UrlShortener.API/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/UrlShortener.API.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "urlshortener.api:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\User\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\User\\Desktop\\projects\\url-shortener\\API\\UrlShortener.API:/app:rw"
+    - "C:\\Users\\User\\Desktop\\projects\\url-shortener:/src:rw"
+    working_dir: "/app"
+  urlshortener.client:
+    build:
+      context: "C:\\Users\\User\\Desktop\\projects\\url-shortener"
+      dockerfile: "Client/UrlShortener.Client/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/UrlShortener.Client.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/UrlShortener.Client.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "urlshortener.client:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\User\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\User\\Desktop\\projects\\url-shortener\\Client\\UrlShortener.Client:/app:rw"
+    - "C:\\Users\\User\\Desktop\\projects\\url-shortener:/src:rw"
+    working_dir: "/app"

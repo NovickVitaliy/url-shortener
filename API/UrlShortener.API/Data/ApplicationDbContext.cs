@@ -6,7 +6,8 @@ namespace UrlShortener.API.Data;
 
 public class ApplicationDbContext : DbContext
 {
-    public const string DefaultConnectionStringConfigPath = "Default";
+    public const string PostgreSqlConnectionStringConfigPath = "Postgres";
+    
     public DbSet<ShortenedUrl> ShortenedUrls => Set<ShortenedUrl>();
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

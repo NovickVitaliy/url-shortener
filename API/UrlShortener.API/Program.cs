@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UrlShortener.API.Data;
+using UrlShortener.API.Extensions;
 using UrlShortener.API.Models.Domain;
 using UrlShortener.API.Models.Dtos;
 using UrlShortener.API.Services;
@@ -8,11 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(configuration.GetConnectionString(ApplicationDbContext.DefaultConnectionStringConfigPath)));
+    options.UseNpgsql(configuration.GetConnectionString(ApplicationDbContext.PostgreSqlConnectionStringConfigPath)));
 
 builder.Services.AddScoped<IUniqueUrlCodeGenerator, DefaultUniqueUrlCodeGenerator>();
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    await app.MigrateDatabaseAsync();
+}
 
 app.MapPost("/api/shorten", async (
     ShortenUrlRequest request,
